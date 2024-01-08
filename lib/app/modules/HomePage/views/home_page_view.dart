@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../controllers/home_page_controller.dart';
@@ -177,7 +176,8 @@ class HomePageView extends GetView<HomePageController> {
                                       controller.tapped(index);
                                       if (controller.winnerFound.value ==
                                         1 || controller.winnerFound.value ==
-                                        2) {
+                                        2|| controller.winnerFound.value ==
+                                        3) {
                                         showModalBottomSheet(
                                           context: context,
                                           builder: (context) {
@@ -197,8 +197,8 @@ class HomePageView extends GetView<HomePageController> {
                                               child:  Column(
                                                 children: [
                                                   const SizedBox(height: 20),
-                                                  const Text(
-                                                    "✨ Congratulation's Bro ✨",
+                                                   Text(
+                                                   controller.winnerFound.value == 3 ? "✨ Well Played ✨" : "✨ Congratulation's Bro ✨",
                                                     style: TextStyle(
                                                         fontSize: 25,
                                                         color: Colors.white,
@@ -207,7 +207,7 @@ class HomePageView extends GetView<HomePageController> {
                                                   ),
                                                   const SizedBox(height: 15),
                                                   Text(
-                                                   controller.winnerFound.value == 1 ? "🎉Winner is 'X'🎉" : controller.winnerFound.value == 2  ? "🎉Winner is 'O'🎉" : "Error"    ,
+                                                   controller.winnerFound.value == 1 ? "🎉Winner is 'X'🎉" : controller.winnerFound.value == 2  ? "🎉Winner is 'O'🎉" : controller.winnerFound.value == 3 ? "Match is Draw" :  "Error"    ,
                                                     style: const TextStyle(
                                                         fontSize: 33,
                                                         color: Colors.white,
@@ -215,8 +215,8 @@ class HomePageView extends GetView<HomePageController> {
                                                             FontWeight.bold),
                                                   ),
                                                   const SizedBox(height: 20),
-                                                  Text(
-                                                    "Dear ${controller.winnerFound.value == 1 ? "'O'" : controller.winnerFound.value == 2 ? "'X'" :""} I Know It's heartbreaking.\n Please Don't Suicide.Try Again....",
+                                                    Text(
+                                                   controller.winnerFound.value == 3 ? "Try Agin....": "Dear ${controller.winnerFound.value == 1 ? "'O'" : controller.winnerFound.value == 2 ? "'X'" :""} I Know It's heartbreaking.\n Please Don't Suicide.Try Again....",
                                                     style: const TextStyle(
                                                         fontSize: 18,
                                                         color: Colors.white,

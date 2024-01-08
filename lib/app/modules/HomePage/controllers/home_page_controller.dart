@@ -29,8 +29,28 @@ class HomePageController extends GetxController {
       isActiveTurn.value = false;
       oTurn.value = true;
     }
+    checkDraw();
     checkWinner();
     return;
+  }
+  checkDraw(){
+    if(
+      displayXO[0] != ""  &&
+      displayXO[1] != "" &&
+      displayXO[2] != "" &&
+      displayXO[3] != ""  &&
+      displayXO[4] != ""  &&
+      displayXO[5] != ""  &&
+      displayXO[6] != ""  &&
+      displayXO[7] != ""  &&
+      displayXO[8] != "" 
+        
+
+      ){
+        winnerFound.value = 3;
+
+      }
+
   }
 
   checkWinner() {
